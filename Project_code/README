@@ -1,0 +1,30 @@
+Steps to be followed for compling file.
+
+1) frame.py
+	This file takes two inputs one video file and another it's json file (you need to manually change the file name in frame.py). It will output the the image in coresponding labeled folders(frist you have to create folder's)
+
+2) bg_fg.py
+	This file takes one video input(you need to manually change the file name in bg_fg.py). It will output the binary video of coressponding video file.
+
+3) kmeans_surf.py
+	This file takes the output of frame.py as input (you need to see the path). This file make cluster's and dump output file as 'kmeans_surf.pkl' in same folder.
+
+	Similarly for  "kmeans_sift.py" 
+
+4) svm_surf_coarse.py
+	This file takes input as output of kmeans_surf.py i.e "kmeans_surf.pkl" and train the SVM classifier and dump the trained classifier as "svm_surf_coarse_linear_0.pkl"(for linear SVM , C=0.1).
+
+	Similarly for  "svm_surf_fine.py", "treeclf_surf_coarse.py"
+
+5) video_testing_surf_coarse.py
+	This file takes four input dump cluster file, dump trained file, original video and corresponding binary file. It shows the finally labeled video.
+
+	Similarly for  "video_testing_surf_fine.py"
+
+6) testing_svm_surf.py
+	This file three input  dump cluster file and dump trained file and data to tested(see path). Its output the acuracy.
+
+	Similarly "testing_foresttreeclf_surf.py"
+
+
+Similarly for Surf features(you may need to change the path)
